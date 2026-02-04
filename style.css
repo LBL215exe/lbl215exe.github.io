@@ -1,0 +1,48 @@
+
+/* My CSS for Page effects */
+
+body{
+    background-image: linear-gradient(to bottom, rgb(0, 30, 5),black) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* My CSS for Text */
+
+}
+h1{ 
+    text-align: center;
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+    
+}
+h2{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+h3{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+h4{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+h5{ 
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+h6{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+p{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+.link{ 
+    text-align: center;
+    color: rgb(0, 145, 255);
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+
+.talking{
+    text-align: center;
+}
