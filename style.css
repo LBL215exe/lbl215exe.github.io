@@ -38,7 +38,27 @@ p{
     font-family: 'Press Start 2P', sans-serif; font-weight: normal
 }
 .link{ 
+        color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+h4{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+h5{ 
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+h6{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+p{ 
+    color: #00FF73;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+.link{ 
     text-align: center;
+    color: rgb(0, 145, 255);
     font-family: 'Press Start 2P', sans-serif; font-weight: normal
 }
 
