@@ -2,16 +2,15 @@
 /* My CSS for Page effects */
 
 body{
-  background-image: linear-gradient(to bottom, rgb(0, 68, 255),rgb(255, 167, 43)) ;
+    background-image: linear-gradient(to bottom,rgb(0, 68, 255),rgb(255, 167, 43));
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* My CSS for Text */
-
 }
+    /* My CSS for Text */
 h1{ 
     text-align: center;
     color: #00FF73;
-    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal;
     
 }
 h2{ 
