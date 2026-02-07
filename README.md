@@ -46,4 +46,4 @@ To run the project in your local environment, follow these steps:
 
 ## 🍿 Video Demo!
 
-https://github.com/LBL215exe/lbl215exe.github.io/media/demo.mp4
+[![Watch the video](https://github.com/LBL215exe/lbl215exe.github.io/media/Project.png)](https://github.com/LBL215exe/lbl215exe.github.io/media/demo.mp4)
