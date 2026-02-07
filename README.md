@@ -32,8 +32,7 @@ During this project, I've picked up basic HTML and CSS and a better understandin
 
 - Make the Index.html more important and not just a page opener for the media and blog page
 - Add JS to it for more functionality and features.
-- Add more shapes like triangles, stars, and more.
-- Add more Media to make things faster.
+- Add more Media to make it less bland.
 - Add changeabe themes like Light mode, dark mode, and more.
 
 ## 🚦 Running the Project
