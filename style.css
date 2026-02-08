@@ -59,6 +59,12 @@ p{
     font-family: 'Press Start 2P', sans-serif; font-weight: normal
 }
 
+a{ 
+    color: black;
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif; font-weight: normal
+}
+
 .talking{
     text-align: center;
 }
