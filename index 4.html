@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LBL215</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #030509;
+  --panel: #0D1117;
+  --panel-2: #0A0D12;
+  --edge: rgba(64, 200, 255, 0.38);
+  --glow: rgba(53, 197, 255, 0.28);
+  --ink: #E7F4FB;
+  --ink-soft: #9AB4C6;
+  --accent: #3FC9FF;
+  --accent-strong: #8FE6FF;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Manrope', sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  background: var(--bg);
+  background-image: radial-gradient(600px 300px at 15% 0%, rgba(63,201,255,0.06), transparent 60%), radial-gradient(500px 260px at 85% 20%, rgba(63,201,255,0.05), transparent 60%);
+  color:var(--ink);
+  font-family: var(--sans);
+  line-height:1.6;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+a{ color: var(--accent-strong); }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-strong); outline-offset:3px; }
+
+.wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+
+.window{
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(155deg, rgba(20,26,36,0.92) 0%, rgba(10,13,18,0.88) 55%, rgba(13,17,23,0.92) 100%);
+  backdrop-filter: blur(4px);
+  border:1px solid var(--edge);
+  border-top: 1px solid rgba(180,225,255,0.35);
+  border-radius:10px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(63,201,255,0.08), 0 0 30px var(--glow), 0 22px 50px -20px rgba(0,0,0,.9);
+  transform: perspective(900px) rotateX(0deg) rotateY(0deg) scale(1) translateY(0px);
+  transition: transform .15s ease-out, box-shadow .25s ease-out;
+  will-change: transform;
+  animation: float 5s ease-in-out infinite;
+}
+.window::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background: linear-gradient(115deg, transparent 0%, transparent 30%, rgba(255,255,255,0.19) 47%, rgba(190,230,255,0.17) 53%, transparent 70%, transparent 100%);
+  mix-blend-mode: soft-light;
+  transform: translate(var(--gx, 0%), var(--gy, 0%));
+  transition: transform .18s ease-out;
+  pointer-events:none;
+  will-change: transform;
+}
+.window:hover{
+  animation-play-state: paused;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(63,201,255,0.14), 0 0 45px rgba(63,201,255,0.4), 0 30px 70px -18px rgba(0,0,0,.9);
+}
+@keyframes float{
+  0%, 100%{ box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(63,201,255,0.08), 0 0 30px var(--glow), 0 22px 50px -20px rgba(0,0,0,.9); }
+  50%{ box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 0 0 1px rgba(63,201,255,0.1), 0 0 34px rgba(63,201,255,0.32), 0 30px 60px -18px rgba(0,0,0,.9); }
+}
+
+.window-bar{ display:flex; align-items:center; padding:10px 16px; background:var(--panel-2); border-bottom:1px solid var(--edge); border-radius:10px 10px 0 0; }
+.window-bar .path{ font-family:var(--mono); font-size:12px; color:var(--ink-soft); letter-spacing:.02em; }
+.window-bar .path .tilde{ color:var(--accent); }
+
+.window-body{ padding:22px 24px 26px; }
+.hero{ padding:88px 0 56px; }
+
+.terminal-body{ font-family:var(--mono); font-size:15px; min-height:190px; }
+.line{ opacity:0; white-space:pre-wrap; }
+.line .prompt{ color:var(--accent); }
+.line .out{ color:var(--accent-strong); text-shadow:0 0 8px rgba(63,201,255,.55), 0 0 22px rgba(63,201,255,.25); }
+
+.cursor{
+  display:inline-block; width:8px; height:16px; background:var(--accent-strong);
+  box-shadow:0 0 8px rgba(63,201,255,.8); vertical-align:-2px;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink{ 50%{opacity:0;} }
+
+section{ padding:26px 0; }
+
+h2{ font-family:var(--mono); font-size:13px; font-weight:500; color:var(--accent-strong); text-shadow:0 0 10px rgba(63,201,255,.45); margin:0 0 16px; }
+
+.lead{ font-size:19px; font-weight:500; max-width:58ch; color:var(--ink); }
+p{ color:var(--ink-soft); max-width:62ch; }
+
+.interest{ display:flex; gap:18px; padding:16px 0; border-left:2px solid var(--interest-edge, var(--accent)); padding-left:18px; }
+.interest + .interest{ margin-top:4px; }
+.interest h3{ margin:0 0 4px; font-size:16px; font-weight:800; color:var(--ink); }
+.interest p{ margin:0; font-size:14.5px; }
+
+.goal .k{ font-family:var(--mono); font-size:12px; color:var(--ink-soft); letter-spacing:.03em; }
+.goal .v{ font-size:21px; font-weight:800; margin-top:6px; color:var(--ink); }
+
+.personality{ font-family:var(--sans); font-size:25px; font-weight:800; line-height:1.35; max-width:24ch; color:var(--ink); }
+.personality .soft{ color:var(--accent-strong); text-shadow:0 0 10px rgba(63,201,255,.4); }
+.personality .spike{ color:var(--accent-strong); text-shadow:0 0 14px rgba(63,201,255,.6); }
+
+.grid{ display:grid; gap:20px; }
+
+footer{ padding:36px 0 60px; font-family:var(--mono); font-size:12.5px; color:var(--ink-soft); text-align:center; }
+footer .dim{ opacity:.6; }
+</style>
+</head>
+<body>
+
+<div class="wrap hero">
+  <div class="window">
+    <div class="window-bar"><span class="path"><span class="tilde">~</span>/lbl215</span></div>
+    <div class="window-body">
+      <div class="terminal-body" id="term">
+        <div class="line"><span class="prompt">$</span> whoami</div>
+        <div class="line"><span class="out">&gt; LBL215</span></div>
+        <div class="line"><span class="prompt">$</span> cat interests.txt</div>
+        <div class="line"><span class="out">&gt; video games, computer science, machine learning</span></div>
+        <div class="line"><span class="prompt">$</span> echo $GOAL</div>
+        <div class="line"><span class="out">&gt; undergrad degree, computer science</span><span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap grid">
+
+  <section class="window">
+    <div class="window-bar"><span class="path"><span class="tilde">~</span>/about</span></div>
+    <div class="window-body">
+      <h2>about</h2>
+      <p class="lead">I've been interested in computers for as long as I can remember, and I got into coding because I like building things that don't already exist.</p>
+      <p>I like to create stuff that interests me, and stuff kind of like that. I want coding to be more than a hobby and possibly a career, which is why I take it seriously in classes and clubs, not just as something I do for fun.</p>
+    </div>
+  </section>
+
+  <section class="window">
+    <div class="window-bar"><span class="path"><span class="tilde">~</span>/interests</span></div>
+    <div class="window-body">
+      <h2>interests</h2>
+      <div class="interest" style="--interest-edge: var(--accent);">
+        <div>
+        <h3>Computer science & machine learning</h3>
+        <p>The core interest behind most of what I do, in class and out of it.</p>
+        </div>
+      </div>
+      <div class="interest" style="--interest-edge: rgba(63,201,255,.55);">
+        <div>
+          <h3>Coding: school, clubs, and free time</h3>
+          <p>Started as coursework and club obligations. Kept going because it stopped feeling like an obligation.</p>
+        </div>
+      </div>
+      <div class="interest" style="--interest-edge: rgba(63,201,255,.3);">
+        <div>
+          <h3>Video games</h3>
+          <p>The reliable off-switch from all of the above.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="window">
+    <div class="window-bar"><span class="path"><span class="tilde">~</span>/goal</span></div>
+    <div class="window-body goal">
+      <h2>where this is headed</h2>
+      <div class="k">next</div>
+      <div class="v">Undergrad degree in Computer Science</div>
+    </div>
+  </section>
+
+  <section class="window">
+    <div class="window-bar"><span class="path"><span class="tilde">~</span>/personality</span></div>
+    <div class="window-body">
+      <h2>personality</h2>
+      <p class="personality">Mostly <span class="soft">chill</span>, with the occasional <span class="spike">random burst of energy.</span></p>
+    </div>
+  </section>
+
+</div>
+
+<footer class="wrap">
+  <span class="dim">&copy; LBL215 | building the future one command at a time</span>
+</footer>
+
+<script>
+const lines = document.querySelectorAll('#term .line')
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+if(reduce){
+  lines.forEach(l => l.style.opacity = 1)
+}else{
+  lines.forEach((line,i) => {
+    setTimeout(()=>{
+      line.style.transition = 'opacity 0.25s ease'
+      line.style.opacity = 1
+    }, 260*i)
+  })
+}
+
+if(!reduce){
+  const cards = document.querySelectorAll('.window')
+  cards.forEach(card => {
+    let ticking = false
+    let lastX = 0, lastY = 0
+
+    card.addEventListener('mousemove', e => {
+      lastX = e.clientX
+      lastY = e.clientY
+      if(!ticking){
+        ticking = true
+        requestAnimationFrame(() => {
+          const r = card.getBoundingClientRect()
+          const x = (lastX - r.left) / r.width
+          const y = (lastY - r.top) / r.height
+          const ry = (x - 0.5) * 14
+          const rx = (0.5 - y) * 14
+          card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`
+          card.style.setProperty('--gx', (ry * 3) + '%')
+          card.style.setProperty('--gy', (-rx * 3) + '%')
+          ticking = false
+        })
+      }
+    })
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)'
+      card.style.setProperty('--gx', '0%')
+      card.style.setProperty('--gy', '0%')
+    })
+  })
+}
+</script>
+
+</body>
+</html>
